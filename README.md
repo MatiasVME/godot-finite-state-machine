@@ -1,4 +1,4 @@
-# godot-finite-state-machine
+# Godot Finite State Machine (code-only)
 
 Godot FSM (Finite State Machine)
 
