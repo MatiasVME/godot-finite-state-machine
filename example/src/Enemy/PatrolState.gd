@@ -9,7 +9,7 @@ const PATROL_MIN_Y: float = 200.0
 
 var _patrol_direction = Vector2(1, 1)
 
-func _init().():
+func _init():
 	physics_process_enabled = false
 	input_enabled = false
 	enter_state_enabled = false

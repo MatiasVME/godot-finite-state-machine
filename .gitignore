@@ -15,3 +15,6 @@ mono_crash.*.json
 # System/tool-specific ignores
 .directory
 *~
+
+# For Godot 4
+.godot/

@@ -1,6 +1,7 @@
 # Godot Finite State Machine (code-only)
 
 Godot FSM (Finite State Machine)
+Godot version: "Godot Engine 4.0"
 
 This is a second FSM for Godot that is purely code-only (no editor plugin).
 

@@ -8,11 +8,11 @@ func _draw() -> void:
 	"""
 	Draws an arc from center -> radius
 	"""
-	var points_arc = PoolVector2Array()
+	var points_arc = PackedVector2Array()
 
 	## just add a bunch of points in a circle around our current position
 	for i in range(points + 1):
-		var angle_point = deg2rad(i * 360 / points - 90)
+		var angle_point = deg_to_rad(i * 360 / points - 90)
 		points_arc.push_back(position + Vector2(cos(angle_point), sin(angle_point)) * diameter)
 
 	## Draw a line from each point to the next

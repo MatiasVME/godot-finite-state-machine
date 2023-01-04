@@ -2,7 +2,7 @@ extends "ProxyState.gd"
 
 class_name IdleState
 
-func _init().():
+func _init():
 	physics_process_enabled = false
 	input_enabled = false
 

@@ -1,22 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://dtv8r14x0rsks"]
 
-[ext_resource path="res://example/src/Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://example/assets/bandit.png" type="Texture" id=2]
+[ext_resource type="Script" path="res://example/src/Player/Player.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cj8h83suy56bs" path="res://example/assets/bandit.png" id="2"]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id="1"]
 radius = 7.11056
 
 [node name="Player" type="Area2D"]
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
+script = ExtResource("1")
 
-[node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.271741, 0.832031, 0.224258, 1 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 2 )
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.271741, 0.832031, 0.224258, 1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2( 4, 4 )
-shape = SubResource( 1 )
+scale = Vector2(4, 4)
+shape = SubResource("1")

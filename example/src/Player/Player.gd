@@ -2,9 +2,9 @@ extends Area2D
 
 class_name Player
 
-const SPEED = 200
+const SPEED = 180
 
-onready var _screen_size = get_viewport_rect().size
+@onready var _screen_size = get_viewport_rect().size
 
 func _process(delta: float) -> void:
 	var velocity = Vector2()

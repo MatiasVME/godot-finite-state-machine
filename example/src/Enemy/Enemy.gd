@@ -13,10 +13,11 @@ const ENEMY_PATROL_DISTANCE: float = 400.0
 var last_shot_time: int = 0
 var state_machine: StateMachine
 
-onready var smf = StateMachineFactory.new()
-onready var player = $"/root/World/Player"
-onready var patrol_circle = $PatrolCircle
-onready var attack_circle = $AttackCircle
+@onready var smf = StateMachineFactory.new()
+@onready var player = $"/root/World3D/Player"
+@onready var patrol_circle = $PatrolCircle
+@onready var attack_circle = $AttackCircle
+
 
 func _ready() -> void:
 	state_machine = smf.create({
@@ -43,12 +44,15 @@ func _ready() -> void:
 	attack_circle.color = Color(1, 0, 0)
 	attack_circle.diameter = ENEMY_ATTACK_DISTANCE
 
+
 # This is required so that our FSM can handle updates
 func _input(event: InputEvent) -> void:
 	state_machine._input(event)
 
+
 func _process(delta: float) -> void:
 	state_machine._process(delta)
+
 
 func distance_from_player() -> float:
 	"""
@@ -56,34 +60,34 @@ func distance_from_player() -> float:
 	"""
 	return position.distance_to(player.position)
 
+
 func should_patrol() -> bool:
 	"""
 	Returns true if we should be patrolling (the player is close)
 	"""
 	return distance_from_player() < ENEMY_PATROL_DISTANCE
 
+
 func has_enemies() -> bool:
 	"""
 	If we're close to the player, set them as our primary enemy
 	"""
+	
 	return distance_from_player() < ENEMY_ATTACK_DISTANCE
 
-func can_shoot() -> bool:
-	"""
-	We should not be able to always fire at the player
-	This function only returns true when some time has passed since the last shot
-	"""
-	return OS.get_system_time_secs() - last_shot_time > 0
 
 func attack_enemies() -> void:
 	"""
 	Fire at the player if we're reloaded and update the time we shot last
 	"""
-	if not can_shoot():
-		return
+	
+	if $Timer.is_stopped():
+		$Timer.start()
 
-	last_shot_time = OS.get_system_time_secs()
-	print("Shooting at player")
 
 func say(message: String) -> void:
 	print("Target says: ", message)
+
+
+func _on_timer_timeout():
+	print("Shooting at player")

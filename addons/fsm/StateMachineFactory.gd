@@ -4,7 +4,7 @@ class_name StateMachineFactory
 
 const StateMachine = preload("StateMachine.gd")
 
-func create(config: Dictionary = {}) -> StateMachine:
+func create(config := {}) -> StateMachine:
 	"""
 	Factory method accepting an optional configuration object
 	"""
